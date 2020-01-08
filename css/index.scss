@@ -206,21 +206,26 @@ body {
     }
   }
   .kitsuneChan {
-    background-color: rgba(0, 0, 0, 0.103);
+    background-color: rgba(0, 0, 0, 0.253);
+    background-image: url("/img/kitsuneChan/Default.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     image-rendering: crisp-edges;
     height: 25vh;
+    width: 25vh;
     position: fixed;
-    bottom: -1.5vh;
-    right: 0;
+    bottom: 3vh;
+    right: 3vw;
     animation: logofloat 5s ease-in-out infinite alternate;
     clip-path: circle(7vh at 45% 38%);
     transition: 1s ease;
     &:hover {
       clip-path: circle(9vh at 45% 38%);
+      background-image: url("/img/kitsuneChan/Smile.png");
     }
   }
 }
-
 .banner {
   @include flexCenter();
   position: relative;
@@ -290,6 +295,7 @@ body {
     animation: flicker var(--animation-time) linear alternate infinite;
   }
   .bannerlogo {
+    opacity: 0.5;
     z-index: 2;
     position: absolute;
     height: 65%;
@@ -363,8 +369,8 @@ body {
   position: absolute;
   top: 40vh;
   right: -10vw;
-  width: 15vw;
-  height: 4vh;
+  width: 20vw;
+  height: 6vh;
   background-color: white;
   font-family: "Oswald", sans-serif;
   opacity: 0.5;
@@ -381,19 +387,26 @@ body {
 .event-display{
   @include SelectDisable;
   @include flexCenter;
-  display: none;
   position: absolute;
   z-index: 11;
-  right: 0;
+  left: -100vw;
   top: 0;
   height: 100vh;
   width:20vw;
-  background-color: rgb(44, 44, 44);
-  opacity: 0.7;
-  transition: 1s ease;
+  background-color: rgba(44, 44, 44, 0.712);
+  opacity: 1;
+  transition: 0.3s ease;
+  flex-direction: column-reverse;
+  .event-display-items{
+    margin-top: 5vh;
+    position:relative;
+    height: 20vh;
+    width: 80%;
+    background-color: rgba(44, 44, 44, 0.74);
+  }
 }
 .event-display-on{
-  display: flex;
+  left: 0;
 }
 .info {
   position: relative;
@@ -427,7 +440,7 @@ body {
 
 @media screen and (max-width: 1200px){
 
-  .events,.cartpie{
+  .events,.cartpie,.event-display{
     display: none;
   }
   .bannerlogo{
@@ -445,5 +458,18 @@ body {
 
 
 
+
+}
+@media screen and (max-width: 768px){
+.navabs,.nav-background{
+  height: 8vh;
+}
+*{
+  -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+}
 
 }
